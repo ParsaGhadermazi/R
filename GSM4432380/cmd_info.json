@@ -1,0 +1,13 @@
+{
+    "salmon_version": "1.5.2",
+    "index": "gencode_v33_index",
+    "libType": "A",
+    "output": "GSM4432380",
+    "unmatedReads": [
+        "SRR11412223.fastq.gz",
+        "SRR11412224.fastq.gz",
+        "SRR11412225.fastq.gz",
+        "SRR11412226.fastq.gz"
+    ],
+    "auxDir": "aux_info"
+}

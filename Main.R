@@ -108,4 +108,4 @@ ggplot(df2,aes(x=Cancer_Type,y=gene_expression,colour=Cancer_Type))+
   facet_grid(cols=vars(gene_label))+
   theme_bw()
 
-
+getwd()
