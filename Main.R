@@ -109,3 +109,23 @@ ggplot(df2,aes(x=Cancer_Type,y=gene_expression,colour=Cancer_Type))+
   theme_bw()
 
 getwd()
+
+
+
+library(readr)
+library(dplyr)
+library(magrittr)
+library(tximport)
+
+Sample_Table=read_csv("SraRunTable.txt") %>% select('Sample Name',source_name,treatment,
+                                                    Cell_Line,Cell_type, time_point) %>%
+  slice(seq(1,48,by=4))
+File_Names=paste0(pull(Sample_Table,'Sample Name'),'/quant.sf')
+names(File_Names)=pull(Sample_Table,'Sample Name')
+gene_map=read_csv("TG.txt",col_names =c("enstid","enstid") )
+
+Count_Data=tximport(files=File_Names,
+         type = "salmon",
+         tx2gene=gene_map ,
+         ignoreTxVersion = TRUE)
+Count_Data['counts']
